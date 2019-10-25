@@ -1,0 +1,36 @@
+
+;Read a character ,if its upper case display it.
+
+.model small
+.stack 100h
+.data
+.code
+
+main proc
+    
+    mov ah,1
+    int 21h
+    cmp al,'A'
+    jnge Endif_          ;Jump if not greater than and equal
+    
+    cmp al,'Z'
+    jnle Endif_          ;Jump if not less than and equal
+    
+    mov dl,al
+    mov ah,2
+    int 21h
+    
+    
+    
+    Endif_:
+    
+    mov ah,4ch
+    int 21h
+    
+    
+    
+    
+    
+    
+main endp
+END main
