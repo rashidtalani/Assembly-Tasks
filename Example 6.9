@@ -1,0 +1,29 @@
+
+;count the characters in a input line.
+
+.model small
+.stack 100h
+.data
+.code
+
+main proc
+   
+   mov dx,0 
+   mov ah,1
+   int 21h
+   
+   While_:
+   cmp al,0DH  ;0DH ascii code of Enter
+   JE End_while
+   inc dx
+   int 21h
+   jmp While_
+   
+   End_while:
+   
+   
+   mov ah,4ch
+   int 21h
+    
+main endp
+END main
