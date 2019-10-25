@@ -1,0 +1,45 @@
+
+;if AX contains a negative number ,put -1 in bx ,if zero than 0 ,if positive than 1
+
+.model small
+.stack 100h
+.data
+.code
+
+main proc
+    
+    
+    
+    mov ax,'5'
+    cmp al,'0'
+    
+    JL negative     ;Jump less than
+    JE zero         ;Jump equal
+    JG positive     ;Jump greater than
+    
+    negative:
+    
+    mov bx,'-1'
+    jmp End_case
+    
+    zero:
+    mov bx,'0'
+    jmp End_case
+    
+    positive:
+    
+    mov bx,'1'
+    jmp End_case
+    
+    
+    End_case:
+    
+    mov dx,bx
+    mov ah,2
+    int 21h
+    
+    
+    
+    
+main endp
+END main
