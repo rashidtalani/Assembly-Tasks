@@ -1,0 +1,25 @@
+
+; loop to display row of 80 stars.
+
+.model small
+.stack 100h
+.data
+.code
+
+main proc
+    
+   mov cx,80
+   mov ax,'*'
+   mov dx,ax
+   
+   Top:           ;loop label
+   mov ah,2
+   int 21h
+   loop Top
+   
+    
+    
+    
+    
+main endp
+END main
