@@ -1,0 +1,33 @@
+
+;Suppose AL and BL contain extended ASCII characters.
+;Display the one that comes first in the character sequence.
+
+.model small
+.stack 100h
+.data
+.code
+
+main proc
+    
+    
+    
+    mov al,49   ;ASCII code of 1  
+    mov bl,55   ;ASCII code of 5            
+    
+    cmp al,bl   ;compare AL,BL
+    JNBE Else_  ;Jump if Not Below or qual
+    
+    mov dl,al
+    JMP Display  ;Jumps to display
+    
+    Else_:
+    
+    mov dl,bl
+    
+    Display:
+    mov ah,2
+    int 21h
+    
+    
+main endp
+END main
