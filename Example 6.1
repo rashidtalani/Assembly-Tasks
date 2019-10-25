@@ -1,0 +1,26 @@
+
+;Suppose AX and BX contain signed numbers. Write some code to put the biggest one in cx.
+
+.model small
+.stack 100h
+.data
+.code
+
+main proc
+    
+    mov ax,'-5'
+    mov bx,'-8'
+    
+    mov cx,ax         ;cx -5
+    cmp bx,cx   ;is bx bigger
+    JLE Next    ; Jump less than or equal
+    mov cx,bx   ;if bx is greater than cx then puts bx in cx
+                ;bx is less than 5 so it prints 5
+    Next:
+    
+    mov dx,cx
+    mov ah,2
+    int 21h
+    
+main endp
+END main
