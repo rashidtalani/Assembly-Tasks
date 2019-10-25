@@ -1,0 +1,29 @@
+
+
+;read codes until blank is readed 
+
+.model small
+.stack 100h
+.data
+.code
+
+main proc
+   
+   mov ah,1
+   
+   Repeat: 
+   
+   int 21h
+   cmp al,' '
+   JE  Endif_   ;jump equal
+   JNE Repeat   ;jump not equal
+                        
+   
+   Endif_:
+   
+   mov ah,4ch
+   int 21h 
+    
+    
+main endp
+END main
