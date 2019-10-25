@@ -1,0 +1,38 @@
+
+
+;read a char. if its "y" or "Y" display it ,otherwise exit
+                       
+.model small
+.stack 100h
+.data
+.code
+
+main proc
+    
+   mov ah,1
+   int 21h
+   
+   cmp al,'y'
+   JE Display     ;Jump equal
+   cmp al,'Y'
+   JE Display     ;Jump equal
+   JMP Else_:
+   
+   
+   Display:
+   mov dl,al
+   mov ah,2
+   int 21h
+   Jmp Endif_: 
+   
+   
+   Else_:
+   mov ah,4ch
+   int 21h
+   
+   Endif_: 
+    
+    
+    
+main endp
+END main
